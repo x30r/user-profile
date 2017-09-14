@@ -1,14 +1,21 @@
 <?php
 session_start();
+if(!isset($_SESSION['id']))
+{
+	echo "Not a user!!! :P";
+	header("refresh:3;url=login.php");
+}
+else
+{
 ?>
 <html>
 	<head>
-		<title>Semantic Web</title>
+		<title>CivilApp Webs</title>
 	</head>
 	<body background="img/17.jpg">
 		<center>
 			<h1>
-				Welcome to Dashboard!
+				Welcome to CivilApp Dashboard!
 				<br>
 				<hr>
 			</h1>
@@ -17,7 +24,6 @@ session_start();
 echo 'You are logged in now<br>';
 echo "Hi, ".$_SESSION['id'];
 ?>
-
 	<form>
 	<br>
 	Search:&nbsp&nbsp<input type="search" value="keywords here.."><br><br> 
@@ -27,3 +33,4 @@ echo "Hi, ".$_SESSION['id'];
 	<a href="logout.php">Logout!</a>
 	</body>
 </html>
+<?php } ?>
